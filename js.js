@@ -17,18 +17,31 @@
   const people = ['Beck, Glenn', 'Becker, Carl', 'Beck{ett, Samuel', 'Beddoes, Mick', 'Beecher, Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Belloc, Hilaire', 'Bellow, Saul', 'Benchley, Robert', 'Benenson, Peter', 'Ben-Gurion, David', 'Benjamin, Walter', 'Benn, Tony', 'Bennington, Chester', 'Benson, Leana', 'Bent, Silas', 'Bentsen, Lloyd', 'Berger, Ric', 'Bergman, Ingmar', 'Berio, Luciano', 'Berle, Milton', 'Berlin, Irving', 'Berne, Eric', 'Bernhard, Sandra', 'Berra, Yogi', 'Berry, Halle', 'Berry, Wendell', 'Bethea, Erin', 'Bevan, Aneurin', 'Bevel, Ken', 'Biden, Joseph', 'Bierce, Ambrose', 'Biko, Steve', 'Billings, Josh', 'Biondo, Frank', 'Birrell, Augustine', 'Black, Elk', 'Blair, Robert', 'Blair, Tony', 'Blake, William'];
 
   // Array.prototype.filter()
-  const fifteen = inventors.filter(function(inventor){
-    if(inventor.year >=1500 && inventory.year<1600){}
-    return true; //returning the ones born on 1500s
-  }
-});
-  console.log(fifteen);
+  const fifteen = inventors.filter(inventor => (inventor.year >=1500 && inventor.year<1600))
+  //returning the ones born on 1500s
+  console.table(fifteen);
 
   // Array.prototype.map()
-  // 2. Give us an array of the inventors' first and last names
+const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+console.table(fullNames);
 
   // Array.prototype.sort()
-  // 3. Sort the inventors by birthdate, oldest to youngest
+//Sorting the inventors by birthdat, oldest to youngest
+/* The traditional and long way of doing -->
+const ordered = inventors.sort( fucntion(a,b){
+  if(a.year> b.year){
+    return:1;
+      }
+      else {
+        return: -1;
+      }
+});
+*/
+
+//now with the es6's amazing features
+const ordered = inventors.sort((a,b)=> a.year > b.year ? 1: -1);
+
+console.table(ordered);
 
   // Array.prototype.reduce()
   // 4. How many years did all the inventors live?
